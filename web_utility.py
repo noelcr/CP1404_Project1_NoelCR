@@ -15,3 +15,4 @@ def load_page(url: str) -> str:
         return ""
     except URLError:
         return ""
+#update

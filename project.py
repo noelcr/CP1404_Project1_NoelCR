@@ -1,8 +1,8 @@
 import web_utility
 
 amount = str('5')
-first_country = 'EUR'
-sec_country = 'USD'
+first_country = 'USD'
+sec_country = 'JPY'
 
 url_string = "https://www.google.com/finance/converter?a=1&from=AUD&to=JPY"
 

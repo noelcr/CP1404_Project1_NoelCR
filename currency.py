@@ -17,22 +17,22 @@ class Currency():
 
 
         if home_currency_code == location_currency_code:
-            print("fail")
+            print("-1")
             return -1
         else:
             print()
 
         result = web_utility.load_page(url_string)
-        print(result[result.index('result'):])
+        #print(result[result.index('result'):])
         store_result = result[result.index('result'):]
-        print(store_result)
+        #print(store_result)
         url_string = "https://www.google.com/finance/converter?a=1&from=AUD&to=JPY"
 
         new_store_result = store_result.replace('\\n', "")
-        print(new_store_result)
+        #print(new_store_result)
 
         conversion_num = (re.findall('\d+(?:\.\d+)?', new_store_result))
-        print(conversion_num)
+        #print(conversion_num)
         final_conversion_num = conversion_num[1]
         print(final_conversion_num)
         return final_conversion_num
@@ -56,8 +56,9 @@ class Currency():
         print()
 
 
-variable_name = Currency()
-result1 = variable_name.convert('10', 'EUR', 'AUD')
-print(result1)
+#conversion = Currency()
+#converted_money = conversion.convert('10', 'EUR', 'AUD')
+
+#print(converted_money)
 # countrypro = Currency()
 # countrypro.get_details('Australia')

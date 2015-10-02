@@ -10,3 +10,5 @@ for line in c_details:
         country_tuple = line
         print(country_tuple)
 c_details.close()
+
+

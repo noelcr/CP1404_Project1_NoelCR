@@ -1,3 +1,4 @@
+import re
 class Currency():
 
     def __init__(self,amount=0, home_currency_code='', location_currency_code=''):
@@ -14,9 +15,31 @@ class Currency():
         url_string = url_string.replace('AUD', home_currency_code)
         url_string = url_string.replace('JPY', location_currency_code)
 
+
+        if home_currency_code == location_currency_code:
+            print("fail")
+            return -1
+        else:
+            print()
+
         result = web_utility.load_page(url_string)
         print(result[result.index('result'):])
+        store_result = result[result.index('result'):]
+        print(store_result)
         url_string = "https://www.google.com/finance/converter?a=1&from=AUD&to=JPY"
+
+        new_store_result = store_result.replace('\\n', "")
+        print(new_store_result)
+
+        conversion_num = (re.findall('\d+(?:\.\d+)?', new_store_result))
+        print(conversion_num)
+        final_conversion_num = conversion_num[1]
+        print(final_conversion_num)
+        return final_conversion_num
+
+
+
+
 
 
     def get_details(self, country_name):
@@ -27,13 +50,14 @@ class Currency():
                 #print("found")
                 print(line)
                 country_tuple = line
-
+            else:
+                country_tuple = ()
         c_details.close()
         print()
 
 
-# variable_name = Currency()
-# variable_name.convert('5', 'USD', 'AUD')
-
+variable_name = Currency()
+result1 = variable_name.convert('10', 'EUR', 'AUD')
+print(result1)
 # countrypro = Currency()
 # countrypro.get_details('Australia')

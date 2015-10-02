@@ -16,3 +16,4 @@ print (url_string)
 result = web_utility.load_page(url_string)
 print(result[result.index('result'):])
 url_string = "https://www.google.com/finance/converter?a=1&from=AUD&to=JPY"
+

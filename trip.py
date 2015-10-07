@@ -15,24 +15,26 @@ class Country():
         symbol_list.append(name)
         symbol_list.append(currency_code)
         symbol_list.append(currency_symbol)
-        print(symbol_list)
-        amount =  10
-        print(symbol_list[-1],amount)
-    def __str__(self,name,currency_code,currency_symbol):
-        print("{}, {}, {}").format(name, currency_code, currency_symbol)
+        #print(symbol_list)
+        amount =  int(input("amount: "))
+        print('{}{}'.format(symbol_list[-1],amount))
+
+    def __str__(self):
+        return "{}, {}, {}".format(self.name, self.currency_code, self.currency_symbol)
 
 
+class Details:
+    def __init__(self):
+        self.locations = []
 
-    def display_symbol(self, money_amount=0):
-        print()
-
-
-
-class Details():
-    print()
-
-
-
+    def add(self, country_name="", start_date="", end_date=""):
+        print("A date string conforms to this format: YYYY/MM/DD")
+        self.country_name=""
+        self.start_date=""
+        self.end_date=""
+        print(self.country_name, self.start_date, self.end_date)
 
 Country('Germany', 'EUR', '€')
+#print(Country)#why doesn't this work?
+
 

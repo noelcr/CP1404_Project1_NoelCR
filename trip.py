@@ -43,11 +43,11 @@ class Details():
         #WHERE DATE CHECKING GOES ----> ADD EXCEPTIONS
         first_date = datetime.strptime(start_date, '%Y/%m/%d')
         first_date = datetime.date(first_date)
-        print(first_date)
+        #print(first_date)
 
         sec_date = datetime.strptime(end_date, '%Y/%m/%d')
         sec_date = datetime.date(sec_date)
-        print(sec_date)
+        #print(sec_date)
 
         if first_date > sec_date:
             raise ValueError('Your first date was after the second date')
@@ -56,18 +56,25 @@ class Details():
                 raise Exception('Date already used')
             else:
                 self.locations.append(country_name)
-                self.locations.append(start_date)
+                self.locations.append(first_date)
                 self.locations.append(sec_date)
 
-        self.locations.append(country_name)
-        self.locations.append(start_date)
-        self.locations.append(sec_date)
-        print(self.locations)
+        # self.locations.append(country_name)
+        # self.locations.append(first_date)
+        # self.locations.append(sec_date)
+        #print(self.locations)
         ##############################################################
-        return country_name, start_date, end_date
+        #return country_name, start_date, end_date
+        return self.locations
 
-    def current_country(self, date_string):
-        if date_string >
+
+    # def current_country(self, date_string):
+    #     print()
+    #     if date_string > first_date and date_string < sec_date:
+    #         return final_country_name
+    #     else:
+    #         print("nope")
+
 
     def is_empty(self):
         if not self.locations:
@@ -86,11 +93,13 @@ test_details2 = Details()
 print(test_details2.add('Australia', '2000/01/01', '2000/02/01'))
 
 
+
 is_empty_result = Details()
 print(is_empty_result.is_empty())
 
 
-
+# test_current_country = Details()
+# print(test_current_country.current_country('2000/01/15'))
 
 
 

@@ -56,9 +56,9 @@ class Currency():
         print()
 
 
-#conversion = Currency()
-#converted_money = conversion.convert('10', 'EUR', 'AUD')
+conversion = Currency()
+converted_money = conversion.convert('10', 'EUR', 'AUD')
 
-#print(converted_money)
-# countrypro = Currency()
-# countrypro.get_details('Australia')
+print(converted_money)
+countrypro = Currency()
+countrypro.get_details('Australia')

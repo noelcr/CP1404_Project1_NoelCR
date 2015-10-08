@@ -1,3 +1,5 @@
+from datetime import datetime
+
 # class Error():
 #     try:
 #         print(1 / 1)
@@ -19,12 +21,16 @@ class Country():
         return "{}, {}, {}".format(self.name, self.currency_code, self.currency_symbol)
 
 
-    def symbol_assign(self, amount):
+    def symbol_assign_to_amount(self, amount):
         #print(self.currency_symbol, "test")
         #amount = 10#int(input("amount: "))
-        print('{}{}'.format(self.currency_symbol, amount))
+        return '{}{}'.format(self.currency_symbol, amount)
 
 
+# ##Country('Germany', 'EUR', '€')
+# test_country1 = Country('bananaland', 'BNL', '€')
+# print(test_country1.symbol_assign_to_amount('10'))
+# print(test_country1)#tests for the overloaded __str__ function
 
 
 class Details():
@@ -41,15 +47,7 @@ class Details():
     def is_empty(self):
         print()
 
-#Country('Germany', 'EUR', '€')
-#print(Country)#why doesn't this work?
 
 
-test_country1 = Country('bananaland', 'BNL', '€')
-
-
-# test_details = Details.add(Details, 'Germany', '1997/01/25', '1997/01/30')
-# print(test_details)
-
-
-test_country1.symbol_assign('10')
+test_details = Details.add(Details, 'Germany', '1997/01/25', '1997/01/30')
+print(test_details)

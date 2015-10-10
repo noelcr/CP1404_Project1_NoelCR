@@ -65,9 +65,9 @@ class Details():
 
     def is_empty(self):
         if not self.locations:
-            return False
-        else:
             return True
+        else:
+            return False
 
 # test_country1 = Country('makeupland', 'BNL', '€')
 # print(test_country1.symbol_assign_to_amount('10'))
@@ -79,5 +79,5 @@ testing = Details('Germany', '1997/01/25', '1997/01/29')
 print(testing.add())
 
 testing.current_country("1997/01/26")
-print(testing.is_empty())
+print(testing.is_empty())#True if empty, #False if not
 

@@ -32,6 +32,9 @@ class Currency():
         #print(new_store_result)
 
         conversion_num = (re.findall('\d+(?:\.\d+)?', new_store_result))
+        #regular expression
+        #/d+ - any number, one or more
+
         #print(conversion_num)
         final_conversion_num = conversion_num[1]
         #print(final_conversion_num)
@@ -53,18 +56,19 @@ class Currency():
                 country_tuple = line
                 return country_tuple
             else:
-                country_tuple = ()
+                pass
 
         c_details.close()
+        country_tuple = ()
+        return country_tuple
 
-
-
-conversion = Currency('10', 'AUD', 'USD')
-print("{}   {}  {}->{}  {}".format(conversion.convert()[1],   conversion.amount,  conversion.home_currency_code,conversion.location_currency_code,   conversion.convert()[0]))
-conversion = Currency('10', 'AUD', 'EUR')
-print("{}   {}  {}->{}  {}".format(conversion.convert()[1],   conversion.amount,  conversion.home_currency_code,conversion.location_currency_code,   conversion.convert()[0]))
-conversion = Currency('1', 'AUD', 'AUD')
-print("{}   {}  {}->{}  {}".format(conversion.convert()[1],   conversion.amount,  conversion.home_currency_code,conversion.location_currency_code,   conversion.convert()[0]))
+#
+# conversion = Currency('10', 'AUD', 'USD')
+# print("{}   {}  {}->{}  {}".format(conversion.convert()[1],   conversion.amount,  conversion.home_currency_code,conversion.location_currency_code,   conversion.convert()[0]))
+# conversion = Currency('10', 'AUD', 'EUR')
+# print("{}   {}  {}->{}  {}".format(conversion.convert()[1],   conversion.amount,  conversion.home_currency_code,conversion.location_currency_code,   conversion.convert()[0]))
+# conversion = Currency('1', 'AUD', 'AUD')
+# print("{}   {}  {}->{}  {}".format(conversion.convert()[1],   conversion.amount,  conversion.home_currency_code,conversion.location_currency_code,   conversion.convert()[0]))
 
 test_currency = Currency()
 print(test_currency.get_details('Australia'))

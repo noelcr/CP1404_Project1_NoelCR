@@ -48,8 +48,9 @@ class Currency():
         for line in c_details:
             if country_name in line:
                 #print("found")
-                print(line)
+                #print(line)
                 country_tuple = line
+                return country_tuple
             else:
                 country_tuple = ()
         c_details.close()
@@ -61,4 +62,4 @@ converted_money = conversion.convert('10', 'EUR', 'AUD')
 
 print(converted_money)
 countrypro = Currency()
-countrypro.get_details('Australia')
+print(countrypro.get_details('Australia'))

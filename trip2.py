@@ -1,21 +1,15 @@
 from datetime import datetime
 
 
-
-# class Error():
-#     try:
-#         print(1 / 1)
-#     except ZeroDivisionError as error:
-#         print(error)
-#     print("After try/except")
-
+class Error():
+    pass
 
 class Country():
     def __init__(self, name, currency_code, currency_symbol):
         self.name = name
         self.currency_code = currency_code
         self.currency_symbol = currency_symbol
-        #print(name, currency_code, currency_symbol)
+        # print(name, currency_code, currency_symbol)
 
     def __str__(self):
         return "{}, {}, {}".format(self.name, self.currency_code, self.currency_symbol)
@@ -24,13 +18,8 @@ class Country():
         return '{}{}'.format(self.currency_symbol, amount)
 
 
-test_country1 = Country('makeupland', 'BNL', '€')
-print(test_country1.symbol_assign_to_amount('10'))
-print(test_country1)#tests for the overloaded __str__ function
-
-
 class Details():
-    def __init__(self, country_name="", start_date="", end_date="" ):
+    def __init__(self, country_name="", start_date="", end_date=""):
         self.locations = []
         self.country_name = country_name
         self.start_date = start_date
@@ -42,15 +31,15 @@ class Details():
         # print(self.end_date)
         first_date = datetime.strptime(self.start_date, '%Y/%m/%d')
         first_date = datetime.date(first_date)
-        #print(first_date)
+        # print(first_date)
         self.first_date2 = first_date
-        print(self.first_date2)
+        #print(self.first_date2)
         #
         sec_date = datetime.strptime(self.end_date, '%Y/%m/%d')
         sec_date = datetime.date(sec_date)
-        #print(sec_date)
+        # print(sec_date)
         self.sec_date2 = sec_date
-        print(self.sec_date2)
+        #print(self.sec_date2)
 
         if self.first_date2 > self.sec_date2:
             raise ValueError('Your first date was after the second date')
@@ -62,7 +51,7 @@ class Details():
                 self.locations.append(self.start_date)
                 self.locations.append(self.end_date)
 
-        #print(self.locations)
+        # print(self.locations)
         return self.locations
 
     def current_country(self, date_string=""):
@@ -70,10 +59,9 @@ class Details():
         date_string = datetime.date(date_string)
         if date_string > self.first_date2 and date_string < self.sec_date2:
             return self.country_name
-            #print(self.country_name)
+            # print(self.country_name)
         else:
             raise Exception("Date not within a trip")
-
 
     def is_empty(self):
         if not self.locations:
@@ -81,15 +69,15 @@ class Details():
         else:
             return True
 
+# test_country1 = Country('makeupland', 'BNL', '€')
+# print(test_country1.symbol_assign_to_amount('10'))
+# print(test_country1)#tests for the overloaded __str__ function
 
 
 
-# testing = Details('Germany', '1997/01/25', '1997/01/29')
-# testing.add()
-# testing.current_country("1997/01/28")
-# print(testing.is_empty())
+testing = Details('Germany', '1997/01/25', '1997/01/29')
+print(testing.add())
 
-
-
-
+testing.current_country("1997/01/26")
+print(testing.is_empty())
 

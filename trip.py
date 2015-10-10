@@ -58,7 +58,7 @@ class Details():
                 self.locations.append(sec_date)
 
 
-        ##########this belongs in current_country function, however not working atm################## IT WORKS 
+        ##########this belongs in current_country function, however not working atm################## IT WORKS
         ###find how to get these varaibles into the current country function###
         date_string = datetime.strptime('2000/01/15', '%Y/%m/%d')
         date_string = datetime.date(date_string)

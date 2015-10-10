@@ -1,24 +1,24 @@
 import re
 class Currency():
 
-    def __init__(self,amount=0, home_currency_code='', location_currency_code=''):
-        self.amount=0
-        self.home_currency_code=""
-        self.location_currency_code=""
+    def __init__(self,amount="", home_currency_code="", location_currency_code=""):
+        self.amount=amount
+        self.home_currency_code=home_currency_code
+        self.location_currency_code=location_currency_code
 
-    def convert(self, amount, home_currency_code, location_currency_code):
+    def convert(self):
         import web_utility
 
         url_string = "https://www.google.com/finance/converter?a=1&from=AUD&to=JPY"
 
-        url_string = url_string.replace('1', amount)
-        url_string = url_string.replace('AUD', home_currency_code)
-        url_string = url_string.replace('JPY', location_currency_code)
+        url_string = url_string.replace('1', self.amount)
+        url_string = url_string.replace('AUD', self.home_currency_code)
+        url_string = url_string.replace('JPY', self.location_currency_code)
 
 
-        if home_currency_code == location_currency_code:
-            print("-1")
-            return -1
+        if self.home_currency_code == self.location_currency_code:
+            #print("-1")
+            return -1.00, "Invalid Conversion"
         else:
             print()
 
@@ -34,8 +34,9 @@ class Currency():
         conversion_num = (re.findall('\d+(?:\.\d+)?', new_store_result))
         #print(conversion_num)
         final_conversion_num = conversion_num[1]
-        print(final_conversion_num)
-        return final_conversion_num
+        #print(final_conversion_num)
+
+        return final_conversion_num, "Valid conversion"
 
 
 
@@ -53,13 +54,17 @@ class Currency():
                 return country_tuple
             else:
                 country_tuple = ()
+
         c_details.close()
-        print()
 
 
-conversion = Currency()
-converted_money = conversion.convert('10', 'EUR', 'AUD')
 
-print(converted_money)
-countrypro = Currency()
-print(countrypro.get_details('Australia'))
+conversion = Currency('10', 'AUD', 'USD')
+print("{}   {}  {}->{}  {}".format(conversion.convert()[1],   conversion.amount,  conversion.home_currency_code,conversion.location_currency_code,   conversion.convert()[0]))
+conversion = Currency('10', 'AUD', 'EUR')
+print("{}   {}  {}->{}  {}".format(conversion.convert()[1],   conversion.amount,  conversion.home_currency_code,conversion.location_currency_code,   conversion.convert()[0]))
+conversion = Currency('1', 'AUD', 'AUD')
+print("{}   {}  {}->{}  {}".format(conversion.convert()[1],   conversion.amount,  conversion.home_currency_code,conversion.location_currency_code,   conversion.convert()[0]))
+
+test_currency = Currency()
+print(test_currency.get_details('Australia'))

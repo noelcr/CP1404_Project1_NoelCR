@@ -70,9 +70,9 @@ class Details():
         else:
             return False
 
-# test_country1 = Country('makeupland', 'BNL', '€')
-# print(test_country1.symbol_assign_to_amount('10'))
-# print(test_country1)#tests for the overloaded __str__ function
+test_country1 = Country('makeupland', 'BNL', '€')
+print(test_country1.symbol_assign_to_amount('10'))
+print(test_country1)#tests for the overloaded __str__ function
 
 
 

@@ -62,13 +62,13 @@ class Currency():
         country_tuple = ()
         return country_tuple
 
-#
-# conversion = Currency('10', 'AUD', 'USD')
-# print("{}   {}  {}->{}  {}".format(conversion.convert()[1],   conversion.amount,  conversion.home_currency_code,conversion.location_currency_code,   conversion.convert()[0]))
-# conversion = Currency('10', 'AUD', 'EUR')
-# print("{}   {}  {}->{}  {}".format(conversion.convert()[1],   conversion.amount,  conversion.home_currency_code,conversion.location_currency_code,   conversion.convert()[0]))
-# conversion = Currency('1', 'AUD', 'AUD')
-# print("{}   {}  {}->{}  {}".format(conversion.convert()[1],   conversion.amount,  conversion.home_currency_code,conversion.location_currency_code,   conversion.convert()[0]))
+
+conversion = Currency('10', 'AUD', 'USD')
+print("{}   {}  {}->{}  {}".format(conversion.convert()[1],   conversion.amount,  conversion.home_currency_code,conversion.location_currency_code,   conversion.convert()[0]))
+conversion = Currency('10', 'AUD', 'EUR')
+print("{}   {}  {}->{}  {}".format(conversion.convert()[1],   conversion.amount,  conversion.home_currency_code,conversion.location_currency_code,   conversion.convert()[0]))
+conversion = Currency('1', 'AUD', 'AUD')
+print("{}   {}  {}->{}  {}".format(conversion.convert()[1],   conversion.amount,  conversion.home_currency_code,conversion.location_currency_code,   conversion.convert()[0]))
 
 test_currency = Currency()
 print(test_currency.get_details('Australia'))

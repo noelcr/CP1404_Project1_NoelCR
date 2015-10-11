@@ -1,8 +1,9 @@
 from datetime import datetime
 
 
-class Error():
-    pass
+class Error(Exception):
+    def Error(self, value):
+        super().__init__(value)
 
 class Country():
     def __init__(self, name, currency_code, currency_symbol):

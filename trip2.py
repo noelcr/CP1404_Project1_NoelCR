@@ -43,10 +43,10 @@ class Details():
         #print(self.sec_date2)
 
         if self.first_date2 > self.sec_date2:
-            raise ValueError('Your first date was after the second date')
+            raise Error('Your first date was after the second date')
         else:
             if self.start_date in self.locations:
-                raise Exception('Date already used')
+                raise Error('Date already used')
             else:
                 self.locations.append(self.country_name)
                 self.locations.append(self.start_date)
@@ -62,7 +62,7 @@ class Details():
             return self.country_name
             # print(self.country_name)
         else:
-            raise Exception("Date not within a trip")
+            raise Error("Date not within a trip")
 
     def is_empty(self):
         if not self.locations:
@@ -79,6 +79,6 @@ class Details():
 testing = Details('Germany', '1997/01/25', '1997/01/29')
 print(testing.add())
 
-testing.current_country("1997/01/26")
+testing.current_country("1997/01/27")
 print(testing.is_empty())#True if empty, #False if not
 
